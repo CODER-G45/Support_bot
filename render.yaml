@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: support-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: TIMEZONE
+        value: Asia/Kolkata
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
